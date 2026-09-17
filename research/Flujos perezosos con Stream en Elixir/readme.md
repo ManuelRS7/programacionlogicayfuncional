@@ -139,16 +139,16 @@ ENFOQUE PEREZOSO (Stream):
 
 ### 4.2 Galería de Diagramas e Ilustraciones
 
-> **Espacio reservado para Diagrama 1: Comparativa de Asignación de Memoria (Enum vs Stream)**
 > 
-> ![Diagrama de Memoria - Enum vs Stream](https://via.placeholder.com/800x400.png?text=Inserte+aqui:+Diagrama+de+Uso+de+Memoria+RAM+Enum+vs+Stream)
-> *Figura 1: Representación conceptual del impacto en el Heap de la BEAM al procesar 1 GB de datos utilizando Enum (picos de memoria) frente a Stream (memoria plana).*
+> ![Diagrama de Memoria - Enum vs Stream](<img width="1600" height="880" alt="comparativa_memoria_enum_stream" src="https://github.com/user-attachments/assets/dae79387-b304-4b97-9194-1d554a554468" />
+)
+> *Figura 1: Representación conceptual del impacto en el Heap de la BEAM al procesar datos utilizando Enum (picos de memoria) frente a Stream (memoria plana).*
 
 <br>
 
-> **Espacio reservado para Diagrama 2: Diagrama de Secuencia de Pipeline Lazy**
 > 
-> ![Diagrama de Secuencia - Evaluacion Lazy](https://via.placeholder.com/800x350.png?text=Inserte+aqui:+Diagrama+de+Secuencia+Flujo+Stream)
+> ![Diagrama de Secuencia - Evaluacion Lazy](<img width="1600" height="1018" alt="diagrama_secuencia_stream" src="https://github.com/user-attachments/assets/d4d9f098-3936-4cf2-98db-3112a9a3e9fa" />
+)
 > *Figura 2: Secuencia de llamadas de retorno (callbacks) y control de flujo en la suspensión y reanudación de un Stream.*
 
 ---
@@ -250,10 +250,16 @@ Comprender la diferencia entre `Enum` y `Stream` es indispensable para cualquier
 
 ---
 
-## 9. Referencias y Recursos Adicionales
+---
 
-1. Documentación Oficial de Elixir - Módulo `Stream`: [https://hexdocs.pm/elixir/Stream.html](https://hexdocs.pm/elixir/Stream.html)
-2. Documentación Oficial de Elixir - Módulo `Enum`: [https://hexdocs.pm/elixir/Enum.html](https://hexdocs.pm/elixir/Enum.html)
-3. Valim, José. *Programming Elixir 1.6: Functional | Concurrent | Pragmatic | Fun*. Pragmatic Bookshelf.
-4. McCord, Chris. *Craft GraphQL APIs in Elixir with Absinthe*.
-5. Guía de Referencia de la Comunidad de Elixir: [https://elixir-lang.org/getting-started/enumerables-and-streams.html](https://elixir-lang.org/getting-started/enumerables-and-streams.html)
+## 9. Referencias
+
+[1] Elixir Core Team, "Stream — Elixir v1.16.0 Documentation," HexDocs, 2024. [En línea]. Disponible en: https://hexdocs.pm/elixir/Stream.html. [Accedido: 16-sep-2026].
+
+[2] Elixir Core Team, "Enum — Elixir v1.16.0 Documentation," HexDocs, 2024. [En línea]. Disponible en: https://hexdocs.pm/elixir/Enum.html. [Accedido: 16-sep-2026].
+
+[3] J. Valim, *Programming Elixir 1.6: Functional | Concurrent | Pragmatic | Fun*, 1st ed. Raleigh, NC, USA: Pragmatic Bookshelf, 2018.
+
+[4] C. McCord, *Craft GraphQL APIs in Elixir with Absinthe*, 1st ed. Raleigh, NC, USA: Pragmatic Bookshelf, 2018.
+
+[5] Elixir Core Team, "Enumerables and Streams," Elixir Getting Started Guide, 2024. [En línea]. Disponible en: https://elixir-lang.org/getting-started/enumerables-and-streams.html. [Accedido: 16-sep-2026].
