@@ -1,6 +1,6 @@
-# Investigación: Flujos Perezosos (*Lazy Streams*) con `Stream` en Elixir
+# Flujos Perezosos (*Lazy Streams*) con `Stream` en Elixir
 
-## 📄 Resumen / Abstract
+## 📄 Resumen
 El módulo `Stream` de Elixir proporciona una abstracción fundamental para la manipulación y procesamiento perezoso (*lazy evaluation*) de colecciones y fuentes de datos potencialmente infinitas o de gran volumen. A diferencia del módulo `Enum`, que opera de manera ansiosa (*eager*) generando colecciones intermedias en memoria en cada paso de una canalización (*pipeline*), `Stream` difiere la ejecución hasta que los datos son explícitamente consumidos. Esta investigación analiza la arquitectura interna, casos de uso óptimos, impacto en el rendimiento y comparativa estructural entre el procesamiento ansioso y perezoso en la Virtual Machine de Erlang (BEAM).
 
 ---
@@ -105,7 +105,7 @@ Usuario               Stream Module              Enum / Reductor
 
 ---
 
-## 💻 Ejemplos de Código y Benchmarks
+## 💻 Ejemplo de Código y Benchmarks
 
 ### Ejemplo 1: Colecciones Grandes (Uso de Memoria)
 
@@ -125,11 +125,12 @@ Usuario               Stream Module              Enum / Reductor
 
 ---
 
-## 🖼️ Ilustraciones y Capturas de Pantalla
+## 🖼️ Consumo de memoria en la BEAM: Enum vs. Stream
 
-> **Espacio para imagen:** *Inserte aquí una captura o diagrama del consumo de memoria usando Observer o Benchee.*
+> 
 
-![Consumo de Memoria: Enum vs Stream](docs/images/memory_comparison_placeholder.png)
+![Consumo de Memoria: Enum vs Stream](<img width="1600" height="880" alt="memory_comparison_benchee" src="https://github.com/user-attachments/assets/77dd775f-e493-4f1e-a390-421bdb6a9fdc" />
+)
 
 *Figura 1: Comparativa visual del consumo de memoria en la BEAM durante la ejecución de pipelines de procesamiento masivo.*
 
@@ -153,11 +154,19 @@ end
 
 ## 🖼️ Diagrama de Procesamiento de Archivos
 
-> **Espacio para imagen:** *Inserte aquí el diagrama de flujo del procesamiento paso a paso de un archivo con `File.stream!/1`.*
+> 
 
-![Flujo de File Stream](docs/images/file_stream_flow_placeholder.png)
+![Flujo de File Stream](<img width="945" height="506" alt="Captura de pantalla 2026-09-16 193330" src="https://github.com/user-attachments/assets/20fdfdcc-8082-4a8f-b8bc-cbed8b84dce3" />
+)
 
 *Figura 2: Diagrama de flujo mostrando la lectura en bloques/líneas con File.stream!.*
+
+### 🔄 Descripción del Flujo Paso a Paso
+
+1. **Disco / Storage (Origen):** El archivo reside físicamente en el almacenamiento secundario (por ejemplo, un archivo de log masivo de varios Gigabytes).
+2. **`File.stream!(path, :line)`:** En lugar de volcar todo el contenido a la memoria RAM (como lo haría `File.read!`), esta función genera un ejecutable perezoso (*lazy struct*) y abre un descriptor I/O que lee el archivo únicamente en pequeñas porciones (línea por línea o en bloques de bytes).
+3. **`Stream.map/2` & `Stream.filter/2` (Composición en RAM):** Cada línea leída fluye individualmente a través de las transformaciones del pipeline. Ningún elemento adicional se carga en la memoria hasta que el elemento actual haya completado todo el trayecto o haya sido filtrado.
+4. **Módulo Redactor (`Enum.reduce/3`, `Enum.into/2`, etc.):** Actúa como el consumidor activo (*pull mechanism*) que solicita elemento a elemento a la cadena de `Stream`, completando el cómputo final con un uso de memoria bajo y constante ($O(1)$), independientemente de si el archivo pesa 10 MB o 50 GB.
 
 ---
 
@@ -178,7 +187,14 @@ end
 
 ---
 
-## 📖 Referencias y Recursos Adicionales
-* [Documentación Oficial de Elixir - Módulo Stream](https://hexdocs.pm/elixir/Stream.html)
-* McCord, C., Tate, B., & Valim, J. (2018). *Programming Elixir ≥ 1.6*. Pragmatic Bookshelf.
-* Erlang/OTP Documentation - *Memory Management in the BEAM*.
+## 📖 Referencias (Formato IEEE)
+
+[1] Elixir Core Team, "Stream module — Elixir v1.18 documentation," *HexDocs*, 2024. [En línea]. Disponible en: https://hexdocs.pm/elixir/Stream.html. [Accedido: 16-sep-2026].
+
+[2] D. Thomas, *Programming Elixir ≥ 1.6: Functional |> Concurrent |> Pragmatic |> Fun*, Raleigh, NC: The Pragmatic Bookshelf, 2018.
+
+[3] S. Jurić, *Elixir in Action*, 3.ª ed. Shelter Island, NY: Manning Publications, 2024.
+
+[4] Elixir Core Team, "File.Stream — Elixir v1.18 documentation," *HexDocs*, 2024. [En línea]. Disponible en: https://hexdocs.pm/elixir/File.Stream.html. [Accedido: 16-sep-2026].
+
+[5] T. Olausson, "Benchee: Easy and extensible benchmarking for Elixir," *HexDocs*, 2023. [En línea]. Disponible en: https://hexdocs.pm/benchee/. [Accedido: 16-sep-2026].
