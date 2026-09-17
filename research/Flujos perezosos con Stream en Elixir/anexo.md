@@ -5,9 +5,9 @@ Se hace documentación de los prompts utilizados, los resultados obtenidos y una
 
 ## 1. Herramienta de IA utilizada
 
-**Modelo:** Gemini (google)
-**Fecha de consulta:** 16 de septiembre de 2026
-**Uso principal:** Formulación, estructuración y generación del archivo `READMEmd`, creación de diagramas ilustrativos y cuadros informativos.
+**Modelo:** Gemini (Google)  
+**Fecha de consulta:** 16 de septiembre de 2026  
+**Uso principal:** Formulación, estructuración y generación del archivo `README.md`, creación de diagramas ilustrativos y cuadros informativos.
 
 ---
 
