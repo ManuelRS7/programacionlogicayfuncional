@@ -1,6 +1,6 @@
 # Anexo — Bitácora de uso de LLM
 
-En este documento se registra el uso de un modelo de lenguaje (LLM) como una herramienta de apoyo correspondiente a la realización del trabajo de investigación del tema Flujos perezosos con Stream en Elixir.
+En este documento se registra el uso de un modelo de lenguaje (LLM) como una herramienta de apoyo correspondiente a la realización del trabajo de investigación del tema **Flujos perezosos con Stream en Elixir**.
 Se hace documentación de los prompts utilizados, los resultados obtenidos y una reflexión crítica acerca de su uso y posibles sesgos encontrados al momento de su utilidad.
 
 ## 1. Herramienta de IA utilizada
