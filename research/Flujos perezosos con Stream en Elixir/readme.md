@@ -141,15 +141,14 @@ ENFOQUE PEREZOSO (Stream):
 
 > <img src="https://github.com/user-attachments/assets/dae79387-b304-4b97-9194-1d554a554468" alt="Diagrama de Memoria - Enum vs Stream" width="1600" height="880">
 
-> ![Diagrama de Memoria - Enum vs Stream](<img width="1600" height="880" alt="comparativa_memoria_enum_stream" src="https://github.com/user-attachments/assets/dae79387-b304-4b97-9194-1d554a554468" />
 )
 > *Figura 1: Representación conceptual del impacto en el Heap de la BEAM al procesar datos utilizando Enum (picos de memoria) frente a Stream (memoria plana).*
 
 <br>
 
 > 
-> ![Diagrama de Secuencia - Evaluacion Lazy](<img width="1600" height="1018" alt="diagrama_secuencia_stream" src="https://github.com/user-attachments/assets/d4d9f098-3936-4cf2-98db-3112a9a3e9fa" />
-)
+> <img width="1600" height="1018" alt="Diagrama de Secuencia - Evaluacion Lazy" src="https://github.com/user-attachments/assets/d4d9f098-3936-4cf2-98db-3112a9a3e9fa" />
+
 > *Figura 2: Secuencia de llamadas de retorno (callbacks) y control de flujo en la suspensión y reanudación de un Stream.*
 
 ---
