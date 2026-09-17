@@ -141,7 +141,6 @@ ENFOQUE PEREZOSO (Stream):
 
 > <img src="https://github.com/user-attachments/assets/dae79387-b304-4b97-9194-1d554a554468" alt="Diagrama de Memoria - Enum vs Stream" width="1600" height="880">
 
-)
 > *Figura 1: Representación conceptual del impacto en el Heap de la BEAM al procesar datos utilizando Enum (picos de memoria) frente a Stream (memoria plana).*
 
 <br>
